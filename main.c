@@ -1,4 +1,4 @@
-int const static j = 20;
+int static j = 20;
 
 int fact(int n)
 {
@@ -21,6 +21,8 @@ int fact(int n)
 int main(void)
 {
 	int i = 5;	
+	fact(i);
+	j = 10;
 	fact(i);
 
 	return 0;

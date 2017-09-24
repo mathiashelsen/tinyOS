@@ -16,3 +16,4 @@ Currently I'm investigating how everything is glued together by GCC. This little
 - Heap (not used in the current code) follows BSS. It is to be expected that the C code will expect
 the heap-address to be fixed at compile time. However, we will write malloc, so, the heap address will be at
 _bss_end + 1, BUT we will let the compiler set this!
+- Global shared variables, will be put in _sdata, and the address is hard coded! In the objdump, you can find references to 0x200... for variable j, which is the start of the RAM. Ergo, at compile time, the SOB assumes and absolute address for its data.

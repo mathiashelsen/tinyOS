@@ -13,7 +13,7 @@
 	.thumb
 	.syntax unified
 	.file	"main.c"
-	.section	.rodata
+	.data
 	.align	2
 	.type	j, %object
 	.size	j, 4
@@ -38,9 +38,10 @@ fact:
 	movs	r3, #1
 	b	.L3
 .L2:
-	movs	r2, #20
-	ldr	r3, [r7, #4]
-	cmp	r3, r2
+	ldr	r3, .L5
+	ldr	r3, [r3]
+	ldr	r2, [r7, #4]
+	cmp	r2, r3
 	beq	.L4
 	ldr	r3, [r7, #4]
 	subs	r3, r3, #1
@@ -64,6 +65,10 @@ fact:
 	mov	sp, r7
 	@ sp needed
 	pop	{r7, pc}
+.L6:
+	.align	2
+.L5:
+	.word	j
 	.size	fact, .-fact
 	.align	2
 	.global	main
@@ -80,11 +85,20 @@ main:
 	str	r3, [r7, #4]
 	ldr	r0, [r7, #4]
 	bl	fact
+	ldr	r3, .L9
+	movs	r2, #10
+	str	r2, [r3]
+	ldr	r0, [r7, #4]
+	bl	fact
 	movs	r3, #0
 	mov	r0, r3
 	adds	r7, r7, #8
 	mov	sp, r7
 	@ sp needed
 	pop	{r7, pc}
+.L10:
+	.align	2
+.L9:
+	.word	j
 	.size	main, .-main
 	.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"

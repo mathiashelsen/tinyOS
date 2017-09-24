@@ -6,100 +6,100 @@ Disassembly of section .isr_vector:
 
 08000000 <g_pfnVectors>:
  8000000:	20020000 	andcs	r0, r2, r0
- 8000004:	08000201 	stmdaeq	r0, {r0, r9}
- 8000008:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800000c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000010:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000014:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000018:	08000241 	stmdaeq	r0, {r0, r6, r9}
+ 8000004:	08000219 	stmdaeq	r0, {r0, r3, r4, r9}
+ 8000008:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800000c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000010:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000014:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000018:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
 	...
- 800002c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000030:	08000241 	stmdaeq	r0, {r0, r6, r9}
+ 800002c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000030:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
  8000034:	00000000 	andeq	r0, r0, r0
- 8000038:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800003c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000040:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000044:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000048:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800004c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000050:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000054:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000058:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800005c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000060:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000064:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000068:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800006c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000070:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000074:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000078:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800007c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000080:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000084:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000088:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800008c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000090:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000094:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000098:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800009c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000a0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000a4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000a8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000ac:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000b0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000b4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000b8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000bc:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000c0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000c4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000c8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000cc:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000d0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000d4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000d8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000dc:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000e0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000e4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000e8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000ec:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000f0:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000f4:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000f8:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 80000fc:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000100:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000104:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000108:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800010c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000110:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000114:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000118:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800011c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000120:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000124:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000128:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800012c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000130:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000134:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000138:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800013c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000140:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000144:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000148:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800014c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000150:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000154:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000158:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800015c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000160:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000164:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000168:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800016c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000170:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000174:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000178:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 800017c:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000180:	08000241 	stmdaeq	r0, {r0, r6, r9}
- 8000184:	08000241 	stmdaeq	r0, {r0, r6, r9}
+ 8000038:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800003c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000040:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000044:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000048:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800004c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000050:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000054:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000058:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800005c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000060:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000064:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000068:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800006c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000070:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000074:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000078:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800007c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000080:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000084:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000088:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800008c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000090:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000094:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000098:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800009c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000a0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000a4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000a8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000ac:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000b0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000b4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000b8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000bc:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000c0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000c4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000c8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000cc:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000d0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000d4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000d8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000dc:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000e0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000e4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000e8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000ec:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000f0:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000f4:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000f8:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 80000fc:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000100:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000104:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000108:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800010c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000110:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000114:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000118:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800011c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000120:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000124:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000128:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800012c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000130:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000134:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000138:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800013c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000140:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000144:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000148:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800014c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000150:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000154:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000158:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800015c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000160:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000164:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000168:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800016c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000170:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000174:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000178:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 800017c:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000180:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
+ 8000184:	08000259 	stmdaeq	r0, {r0, r3, r4, r6, r9}
 
 Disassembly of section .text:
 
@@ -112,96 +112,107 @@ Disassembly of section .text:
  8000192:	2b01      	cmp	r3, #1
  8000194:	d101      	bne.n	800019a <fact+0x12>
  8000196:	2301      	movs	r3, #1
- 8000198:	e016      	b.n	80001c8 <fact+0x40>
- 800019a:	2214      	movs	r2, #20
- 800019c:	687b      	ldr	r3, [r7, #4]
- 800019e:	4293      	cmp	r3, r2
- 80001a0:	d009      	beq.n	80001b6 <fact+0x2e>
- 80001a2:	687b      	ldr	r3, [r7, #4]
- 80001a4:	3b01      	subs	r3, #1
- 80001a6:	4618      	mov	r0, r3
- 80001a8:	f7ff ffee 	bl	8000188 <fact>
- 80001ac:	4602      	mov	r2, r0
- 80001ae:	687b      	ldr	r3, [r7, #4]
- 80001b0:	fb03 f302 	mul.w	r3, r3, r2
- 80001b4:	e008      	b.n	80001c8 <fact+0x40>
- 80001b6:	687b      	ldr	r3, [r7, #4]
- 80001b8:	3b02      	subs	r3, #2
- 80001ba:	4618      	mov	r0, r3
- 80001bc:	f7ff ffe4 	bl	8000188 <fact>
- 80001c0:	4602      	mov	r2, r0
- 80001c2:	687b      	ldr	r3, [r7, #4]
- 80001c4:	fb03 f302 	mul.w	r3, r3, r2
- 80001c8:	4618      	mov	r0, r3
- 80001ca:	3708      	adds	r7, #8
- 80001cc:	46bd      	mov	sp, r7
- 80001ce:	bd80      	pop	{r7, pc}
+ 8000198:	e017      	b.n	80001ca <fact+0x42>
+ 800019a:	4b0e      	ldr	r3, [pc, #56]	; (80001d4 <fact+0x4c>)
+ 800019c:	681b      	ldr	r3, [r3, #0]
+ 800019e:	687a      	ldr	r2, [r7, #4]
+ 80001a0:	429a      	cmp	r2, r3
+ 80001a2:	d009      	beq.n	80001b8 <fact+0x30>
+ 80001a4:	687b      	ldr	r3, [r7, #4]
+ 80001a6:	3b01      	subs	r3, #1
+ 80001a8:	4618      	mov	r0, r3
+ 80001aa:	f7ff ffed 	bl	8000188 <fact>
+ 80001ae:	4602      	mov	r2, r0
+ 80001b0:	687b      	ldr	r3, [r7, #4]
+ 80001b2:	fb03 f302 	mul.w	r3, r3, r2
+ 80001b6:	e008      	b.n	80001ca <fact+0x42>
+ 80001b8:	687b      	ldr	r3, [r7, #4]
+ 80001ba:	3b02      	subs	r3, #2
+ 80001bc:	4618      	mov	r0, r3
+ 80001be:	f7ff ffe3 	bl	8000188 <fact>
+ 80001c2:	4602      	mov	r2, r0
+ 80001c4:	687b      	ldr	r3, [r7, #4]
+ 80001c6:	fb03 f302 	mul.w	r3, r3, r2
+ 80001ca:	4618      	mov	r0, r3
+ 80001cc:	3708      	adds	r7, #8
+ 80001ce:	46bd      	mov	sp, r7
+ 80001d0:	bd80      	pop	{r7, pc}
+ 80001d2:	bf00      	nop
+ 80001d4:	20000000 	andcs	r0, r0, r0
 
-080001d0 <main>:
- 80001d0:	b580      	push	{r7, lr}
- 80001d2:	b082      	sub	sp, #8
- 80001d4:	af00      	add	r7, sp, #0
- 80001d6:	2305      	movs	r3, #5
- 80001d8:	607b      	str	r3, [r7, #4]
- 80001da:	6878      	ldr	r0, [r7, #4]
- 80001dc:	f7ff ffd4 	bl	8000188 <fact>
- 80001e0:	2300      	movs	r3, #0
- 80001e2:	4618      	mov	r0, r3
- 80001e4:	3708      	adds	r7, #8
- 80001e6:	46bd      	mov	sp, r7
- 80001e8:	bd80      	pop	{r7, pc}
- 80001ea:	bf00      	nop
- 80001ec:	08000248 	stmdaeq	r0, {r3, r6, r9}
- 80001f0:	20000000 	andcs	r0, r0, r0
- 80001f4:	20000000 	andcs	r0, r0, r0
- 80001f8:	20000000 	andcs	r0, r0, r0
- 80001fc:	20000000 	andcs	r0, r0, r0
+080001d8 <main>:
+ 80001d8:	b580      	push	{r7, lr}
+ 80001da:	b082      	sub	sp, #8
+ 80001dc:	af00      	add	r7, sp, #0
+ 80001de:	2305      	movs	r3, #5
+ 80001e0:	607b      	str	r3, [r7, #4]
+ 80001e2:	6878      	ldr	r0, [r7, #4]
+ 80001e4:	f7ff ffd0 	bl	8000188 <fact>
+ 80001e8:	4b05      	ldr	r3, [pc, #20]	; (8000200 <main+0x28>)
+ 80001ea:	220a      	movs	r2, #10
+ 80001ec:	601a      	str	r2, [r3, #0]
+ 80001ee:	6878      	ldr	r0, [r7, #4]
+ 80001f0:	f7ff ffca 	bl	8000188 <fact>
+ 80001f4:	2300      	movs	r3, #0
+ 80001f6:	4618      	mov	r0, r3
+ 80001f8:	3708      	adds	r7, #8
+ 80001fa:	46bd      	mov	sp, r7
+ 80001fc:	bd80      	pop	{r7, pc}
+ 80001fe:	bf00      	nop
+ 8000200:	20000000 	andcs	r0, r0, r0
+ 8000204:	0800025c 	stmdaeq	r0, {r2, r3, r4, r6, r9}
+ 8000208:	20000000 	andcs	r0, r0, r0
+ 800020c:	20000004 	andcs	r0, r0, r4
+ 8000210:	20000004 	andcs	r0, r0, r4
+ 8000214:	20000004 	andcs	r0, r0, r4
 
-08000200 <Reset_Handler>:
- 8000200:	2100      	movs	r1, #0
- 8000202:	e003      	b.n	800020c <LoopCopyDataInit>
+08000218 <Reset_Handler>:
+ 8000218:	2100      	movs	r1, #0
+ 800021a:	e003      	b.n	8000224 <LoopCopyDataInit>
 
-08000204 <CopyDataInit>:
- 8000204:	4b09      	ldr	r3, [pc, #36]	; (800022c <LoopFillZerobss+0xc>)
- 8000206:	585b      	ldr	r3, [r3, r1]
- 8000208:	5043      	str	r3, [r0, r1]
- 800020a:	3104      	adds	r1, #4
+0800021c <CopyDataInit>:
+ 800021c:	4b09      	ldr	r3, [pc, #36]	; (8000244 <LoopFillZerobss+0xc>)
+ 800021e:	585b      	ldr	r3, [r3, r1]
+ 8000220:	5043      	str	r3, [r0, r1]
+ 8000222:	3104      	adds	r1, #4
 
-0800020c <LoopCopyDataInit>:
- 800020c:	4808      	ldr	r0, [pc, #32]	; (8000230 <LoopFillZerobss+0x10>)
- 800020e:	4b09      	ldr	r3, [pc, #36]	; (8000234 <LoopFillZerobss+0x14>)
- 8000210:	1842      	adds	r2, r0, r1
- 8000212:	429a      	cmp	r2, r3
- 8000214:	d3f6      	bcc.n	8000204 <CopyDataInit>
- 8000216:	4a08      	ldr	r2, [pc, #32]	; (8000238 <LoopFillZerobss+0x18>)
- 8000218:	e002      	b.n	8000220 <LoopFillZerobss>
+08000224 <LoopCopyDataInit>:
+ 8000224:	4808      	ldr	r0, [pc, #32]	; (8000248 <LoopFillZerobss+0x10>)
+ 8000226:	4b09      	ldr	r3, [pc, #36]	; (800024c <LoopFillZerobss+0x14>)
+ 8000228:	1842      	adds	r2, r0, r1
+ 800022a:	429a      	cmp	r2, r3
+ 800022c:	d3f6      	bcc.n	800021c <CopyDataInit>
+ 800022e:	4a08      	ldr	r2, [pc, #32]	; (8000250 <LoopFillZerobss+0x18>)
+ 8000230:	e002      	b.n	8000238 <LoopFillZerobss>
 
-0800021a <FillZerobss>:
- 800021a:	2300      	movs	r3, #0
- 800021c:	f842 3b04 	str.w	r3, [r2], #4
+08000232 <FillZerobss>:
+ 8000232:	2300      	movs	r3, #0
+ 8000234:	f842 3b04 	str.w	r3, [r2], #4
 
-08000220 <LoopFillZerobss>:
- 8000220:	4b06      	ldr	r3, [pc, #24]	; (800023c <LoopFillZerobss+0x1c>)
- 8000222:	429a      	cmp	r2, r3
- 8000224:	d3f9      	bcc.n	800021a <FillZerobss>
- 8000226:	f7ff ffd3 	bl	80001d0 <main>
- 800022a:	4770      	bx	lr
- 800022c:	08000248 	stmdaeq	r0, {r3, r6, r9}
- 8000230:	20000000 	andcs	r0, r0, r0
- 8000234:	20000000 	andcs	r0, r0, r0
- 8000238:	20000000 	andcs	r0, r0, r0
- 800023c:	20000000 	andcs	r0, r0, r0
+08000238 <LoopFillZerobss>:
+ 8000238:	4b06      	ldr	r3, [pc, #24]	; (8000254 <LoopFillZerobss+0x1c>)
+ 800023a:	429a      	cmp	r2, r3
+ 800023c:	d3f9      	bcc.n	8000232 <FillZerobss>
+ 800023e:	f7ff ffcb 	bl	80001d8 <main>
+ 8000242:	4770      	bx	lr
+ 8000244:	0800025c 	stmdaeq	r0, {r2, r3, r4, r6, r9}
+ 8000248:	20000000 	andcs	r0, r0, r0
+ 800024c:	20000004 	andcs	r0, r0, r4
+ 8000250:	20000004 	andcs	r0, r0, r4
+ 8000254:	20000004 	andcs	r0, r0, r4
 
-08000240 <ADC_IRQHandler>:
- 8000240:	e7fe      	b.n	8000240 <ADC_IRQHandler>
+08000258 <ADC_IRQHandler>:
+ 8000258:	e7fe      	b.n	8000258 <ADC_IRQHandler>
 	...
 
-08000244 <j>:
- 8000244:	00000014 	andeq	r0, r0, r4, lsl r0
+Disassembly of section .data:
+
+20000000 <_sdata>:
+20000000:	00000014 	andeq	r0, r0, r4, lsl r0
 
 Disassembly of section ._user_heap_stack:
 
-20000000 <._user_heap_stack>:
+20000004 <._user_heap_stack>:
 	...
 
 Disassembly of section .ARM.attributes:

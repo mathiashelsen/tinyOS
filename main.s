@@ -13,6 +13,12 @@
 	.thumb
 	.syntax unified
 	.file	"main.c"
+	.section	.rodata
+	.align	2
+	.type	j, %object
+	.size	j, 4
+j:
+	.word	20
 	.text
 	.align	2
 	.global	fact
@@ -32,8 +38,21 @@ fact:
 	movs	r3, #1
 	b	.L3
 .L2:
+	movs	r2, #20
+	ldr	r3, [r7, #4]
+	cmp	r3, r2
+	beq	.L4
 	ldr	r3, [r7, #4]
 	subs	r3, r3, #1
+	mov	r0, r3
+	bl	fact
+	mov	r2, r0
+	ldr	r3, [r7, #4]
+	mul	r3, r3, r2
+	b	.L3
+.L4:
+	ldr	r3, [r7, #4]
+	subs	r3, r3, #2
 	mov	r0, r3
 	bl	fact
 	mov	r2, r0

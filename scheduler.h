@@ -7,18 +7,18 @@ typedef struct task
 	void*		taskArgs;
 	void*		taskFramePtr;
 	task*		nextTask;
-}
+};
 
 typedef struct scheduler
 {
 	int numTasks;
 	int activeTask;
 	task* rootTask;
-}
+};
 
-int registerTask	( scheduler*, void (*func)(const void *), void* args );
-int killTask		( scheduler*, int taskID );
-int initScheduler	( scheduler* );
-int startScheduler	( scheduler* );
+int registerTask	( void (*func)(const void *), void* args );
+int killTask		( int taskID );
+int initScheduler	( );
+int startScheduler	( );
 
 #endif

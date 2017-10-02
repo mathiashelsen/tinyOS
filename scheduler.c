@@ -1,6 +1,9 @@
 #include "scheduler.h"
 
-int initScheduler	( scheduler* sPtr )
+const scheduler mainScheduler;
+scheduler * const sPtr = &sched;
+
+int initScheduler	( )
 {
 	sPtr->numTasks		= 0;
 	sPtr->activeTask	= 0;

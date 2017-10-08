@@ -74,7 +74,7 @@ void TIM2_IRQHandler(void)
 
 		myStackPtr = stackPtr;
 
-		asm volatile(	"ldr %0, [sp, #36]"
+		asm volatile(	"ldr %0, [sp, #40]"
 						: "=r" (lrValue)
 						: : "memory");
 

@@ -1,6 +1,7 @@
 #include "tinyOS.h"
 
 volatile uint16_t rr = 0x8000;
+volatile uint32_t myStackPtr = 0x0;
 
 int setupIO( )
 {
@@ -58,9 +59,24 @@ int setupIO( )
 
 void TIM2_IRQHandler(void)
 {
+	uint32_t stackPtr = 0;
+	uint32_t lrValue = 0;
+
     if( TIM_GetITStatus( TIM2, TIM_IT_Update) != RESET )
     {
 		TIM_ClearITPendingBit( TIM2, TIM_IT_Update );
+		TIM_Cmd(TIM2, DISABLE);
+
+
+		asm volatile(	"mov %0, sp\n\r"
+						: "=r" (stackPtr)
+						: : "memory");
+
+		myStackPtr = stackPtr;
+
+		asm volatile(	"ldr %0, [sp, #36]"
+						: "=r" (lrValue)
+						: : "memory");
 
 		rr = rr >> 1;
 		if( rr < 0x1000 )
@@ -69,5 +85,6 @@ void TIM2_IRQHandler(void)
 		}
 
 		GPIO_Write(GPIOD, rr);
+		TIM_Cmd(TIM2, ENABLE);
     }
 }

@@ -12,3 +12,17 @@ int initScheduler	( )
 	*/
 	return 0;
 }
+
+int createTask		( void (*func)(const void *), void* args )
+{
+
+struct task
+{
+	struct taskFlags_str	taskFlags
+	uint32_t				stackPtr;
+	uint32_t				pcValue;
+	void*					taskArgs;
+	struct task*			nextTask;
+};
+
+}

@@ -3,12 +3,19 @@
 
 #include <stdint.h>
 
+struct taskFlags_str
+{
+	unsigned int activated : 1; // Has the function been fed the input variables?
+	unsigned int running   : 1; // Is the function allowed to run by the scheduler?
+};
+
 struct task
 {
-	uint32_t	stackPtr;
-	void*		taskArgs;
-	void*		taskFramePtr;
-	struct task*		nextTask;
+	struct taskFlags_str	taskFlags
+	uint32_t				stackPtr;
+	uint32_t				pcValue;
+	void*					taskArgs;
+	struct task*			nextTask;
 };
 
 struct scheduler
@@ -18,7 +25,7 @@ struct scheduler
 	struct task* rootTask;
 };
 
-int registerTask	( void (*func)(const void *), void* args );
+int createTask		( void (*func)(const void *), void* args );
 int killTask		( int taskID );
 int initScheduler	( );
 int startScheduler	( );

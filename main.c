@@ -23,7 +23,9 @@ int main(void)
 
 	for(;;)
 	{
-		j = calcFact(i);
+		//j = calcFact(i);
+		j = (int) &calcFact;
+		asm volatile(	"bx %0\n\r" : : "r" (j) : "memory");
 		z = (int) myStackPtr;
 
 		if(j == z)

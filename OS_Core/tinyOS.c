@@ -68,12 +68,14 @@ void TIM2_IRQHandler(void)
 		TIM_Cmd(TIM2, DISABLE);
 
 
+		// Retrieve stack pointer value
 		asm volatile(	"mov %0, sp\n\r"
 						: "=r" (stackPtr)
 						: : "memory");
 
 		myStackPtr = stackPtr;
 
+		// Retrieve return address
 		asm volatile(	"ldr %0, [sp, #40]"
 						: "=r" (lrValue)
 						: : "memory");

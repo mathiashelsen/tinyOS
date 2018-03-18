@@ -1,4 +1,5 @@
 #include "OS_Core/tinyOS.h"
+#include "OS_Core/scheduler.h"
 
 #include "stm32f4xx_gpio.h"
 
@@ -14,12 +15,25 @@ int calcFact(int n)
 	}
 }
 
+void doStuff( const void *args )
+{
+	int i = 100;
+	while( i > 0 )
+	{
+		i = i-1;
+	}
+}
+
 int main(void)
 {
 	int i = 2;
 	int j = 0;
 	int z = 0;
 	setupIO( );
+
+	struct scheduler process_0;
+	initScheduler( &process_0 );
+	createTask( &process_0, &doStuff, NULL );
 
 	for(;;)
 	{

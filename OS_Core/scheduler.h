@@ -2,6 +2,8 @@
 #define _SCHEDULER_H
 
 #include <stdint.h>
+#include <stdlib.h>
+#include "tinyOS.h"
 
 struct taskFlags_str
 {
@@ -11,8 +13,9 @@ struct taskFlags_str
 
 struct task
 {
-	struct taskFlags_str	taskFlags
+	struct taskFlags_str	taskFlags;
 	uint32_t				stackPtr;
+	uint32_t				heapPtr;
 	uint32_t				pcValue;
 	void*					taskArgs;
 	struct task*			nextTask;
@@ -20,14 +23,32 @@ struct task
 
 struct scheduler
 {
-	int numTasks;
-	int activeTask;
-	struct task* rootTask;
+	uint32_t numTasks;
+
+	uint32_t stackBase;
+	uint32_t stackSize;
+	uint32_t heapBase;
+	uint32_t heapSize;
+	
+	struct task* rootTask;		// First task to run
+	struct task* currentTask;	// Will be required for umalloc;
+	struct task* lastTask;		// New tasks get appended to the list
 };
 
-int createTask		( void (*func)(const void *), void* args );
-int killTask		( int taskID );
-int initScheduler	( );
+int createTask		(
+	struct scheduler *sch,
+	void (*func)(const void *), void* args 
+	);
+
+int killTask		(
+	struct scheduler *sch,
+	int taskID 
+	);
+
+int initScheduler	(
+	struct scheduler *sch
+	);
+
 int startScheduler	( );
 
 #endif

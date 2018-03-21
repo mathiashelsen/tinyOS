@@ -3,13 +3,12 @@
 
 void logMap( void * _args )
 {
-	printf("Hello!\n");
 	struct logMap_args *args = (struct logMap_args *) _args;
 	double r_step = (args->r_end - args->r_start)/((double)args->N_r - 1.0);
 	double *res = *(args->results);
 	double x, r;
-	int i, j;
-	
+	int i, j, k;
+
 	for(i = 0; i < args->N_r; i++)
 	{
 		x = 0.5;
@@ -18,9 +17,12 @@ void logMap( void * _args )
 		for(j = 0; j < args->N_iters; j++)
 		{
 			x = r*x*(1.0 - x);
-			if( j >= args->N_saves )
+			if( j >= (args->N_iters - args->N_saves) )
 			{
-				res[i*args->N_saves + j] = x;
+				res[i*args->N_saves + k] = x;
+				k++;
+			}else{
+				k = 0;
 			}
 		}
 		

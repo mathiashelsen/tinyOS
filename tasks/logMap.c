@@ -3,17 +3,11 @@
 
 void logMap( void * _args )
 {
-	printf("Helllo world!\n");
+	printf("Hello!\n");
 	struct logMap_args *args = (struct logMap_args *) _args;
 	double r_step = (args->r_end - args->r_start)/((double)args->N_r - 1.0);
 	double x, r;
-	int i, j, N;
-
-	args->results = 0;
-	N = sizeof(double)*(args->N_r)*(args->N_saves);
-	args->results = malloc(N);
-	printf("Allocated pointer at %p\n", args->results);
-
+	int i, j;
 	
 	for(i = 0; i < args->N_r; i++)
 	{

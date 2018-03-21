@@ -10,11 +10,14 @@ int main(void)
 	args.N_iters	= 1000.0;
 	args.N_saves	= 100;
 	N				= 100*100;
-	//args.results	= malloc(N);
+	args.results	= malloc(sizeof(double)*N);
+
+	printf("Retrieved pointer at %p\n", args.results);
 	double r ;
 	double r_step = (args.r_end - args.r_start)/((double)args.N_r - 1.0);
 
 	logMap( (void*)&args );
+
 
 	printf("Retrieved pointer at %p\n", args.results);
 

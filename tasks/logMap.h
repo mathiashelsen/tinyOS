@@ -13,7 +13,7 @@ struct logMap_args
 	int		N_r;
 	int		N_iters;
 	int		N_saves;
-	double	*results;
+	double	**results;
 } ;
 
 void logMap( void * _args );

@@ -68,17 +68,47 @@ void TIM2_IRQHandler(void)
 		TIM_Cmd(TIM2, DISABLE);
 
 
+
+		// Save extra registers
+		asm volatile(	"push {r4-r11}\n\r" : : );
+
 		// Retrieve stack pointer value
 		asm volatile(	"mov %0, sp\n\r"
 						: "=r" (stackPtr)
 						: : "memory");
+	
+		// Save LR value (return to floating point?)	
+		asm volatile(	"mov %0, lr\n\r" : "=r" (lrValue) : : "memory");
+	
 
+		/* INSERT SCHEDULER MAGIC */
 		myStackPtr = stackPtr;
 
-		// Retrieve return address
-		asm volatile(	"ldr %0, [sp, #40]"
-						: "=r" (lrValue)
+		// Return stack pointer
+		asm volatile(	"mov sp, %0\n\r"
+						: "=r" (stackPtr)
 						: : "memory");
+
+		// Read back extra registers
+		asm volatile(	"pop {r4-r11}\n\r" : : );
+
+		// Branch back to routine in progress
+		asm volatile(	"bx %0\n\r" : : "r" (lrValue) : "memory");
+
+
+		/* You don't need this, when branching back to xFFF...9 
+		* The interrupt controller takes care of loading the LR
+		* from stack. Take care to save if it has to return FP registers
+		* as well. Store R4-R11 on the stack as well MANUALLY!
+		*/
+
+
+//		// Retrieve return address
+//		asm volatile(	"ldr %0, [sp, #40]"
+//						: "=r" (lrValue)
+//						: : "memory");
+//
+
 
 		rr = rr >> 1;
 		if( rr < 0x1000 )

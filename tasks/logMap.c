@@ -5,7 +5,7 @@ void logMap( void * _args )
 {
 	struct logMap_args *args = (struct logMap_args *) _args;
 	double r_step = (args->r_end - args->r_start)/((double)args->N_r - 1.0);
-	double *res = *(args->results);
+	args->results = malloc(sizeof(double)*(args->N_r)*(args->N_saves));
 	double x, r;
 	int i, j, k;
 
@@ -19,7 +19,7 @@ void logMap( void * _args )
 			x = r*x*(1.0 - x);
 			if( j >= (args->N_iters - args->N_saves) )
 			{
-				res[i*args->N_saves + k] = x;
+				(args->results)[i*args->N_saves + k] = x;
 				k++;
 			}else{
 				k = 0;

@@ -73,9 +73,7 @@ void TIM2_IRQHandler(void)
 		asm volatile(	"push {r4-r11}\n\r" : : );
 
 		// Retrieve stack pointer value
-		asm volatile(	"mov %0, sp\n\r"
-						: "=r" (stackPtr)
-						: : "memory");
+		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
 	
 		// Save LR value (return to floating point?)	
 		asm volatile(	"mov %0, lr\n\r" : "=r" (lrValue) : : "memory");
@@ -85,9 +83,7 @@ void TIM2_IRQHandler(void)
 		myStackPtr = stackPtr;
 
 		// Return stack pointer
-		asm volatile(	"mov sp, %0\n\r"
-						: "=r" (stackPtr)
-						: : "memory");
+		asm volatile(	"mov sp, %0\n\r" : : "r" (stackPtr) : "memory");
 
 		// Read back extra registers
 		asm volatile(	"pop {r4-r11}\n\r" : : );

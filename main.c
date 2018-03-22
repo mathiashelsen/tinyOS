@@ -1,5 +1,6 @@
 #include "OS_Core/tinyOS.h"
 #include "OS_Core/scheduler.h"
+#include "../tasks/logMap.h"
 
 #include "stm32f4xx_gpio.h"
 
@@ -30,6 +31,15 @@ int main(void)
 	int j = 0;
 	int z = 0;
 	setupIO( );
+
+	struct logMap_args args;
+	args.r_start	= 0.0;
+	args.r_end		= 4.0;
+	args.N_r		= 100.0;
+	args.N_iters	= 1000.0;
+	args.N_saves	= 100;
+
+	logMap( (void*)&args );
 
 	struct scheduler process_0;
 	initScheduler( &process_0 );

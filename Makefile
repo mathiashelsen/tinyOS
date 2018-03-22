@@ -23,9 +23,9 @@ CFLAGS	= $(MCFLAGS)  $(OPTIMIZE)  $(DEFS) -I. -I./ $(STM32_INCLUDES)  -Wl,-T,stm
 AFLAGS	= $(MCFLAGS) 
 #-mapcs-float use float regs. small increase in code size
 
-SRC = main.c \
-    *.c \
+SRC := *.c \
 	./OS_Core/*.c \
+	./tasks/*.c \
 	system_stm32f4xx.c \
 	./STM32F4_Std/src/misc.c \
 	./STM32F4_Std/src/stm32f4xx_adc.c \
@@ -58,6 +58,10 @@ SRC = main.c \
 	./STM32F4_Std/src/stm32f4xx_tim.c \
 	./STM32F4_Std/src/stm32f4xx_usart.c \
 	./STM32F4_Std/src/stm32f4xx_wwdg.c 
+
+FILTER_OUT := ./tasks/TB_logMap.c
+
+SRC := $(filter-out $(FILTER_OUT), $(wildcard $(SRC)))
 
 OBJDIR = .
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o) 

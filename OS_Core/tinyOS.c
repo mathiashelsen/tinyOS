@@ -69,6 +69,10 @@ void TIM2_IRQHandler(void)
 
 
 
+		/* This only works because we never use the PSR, and only
+		*  the MSR. This can be programmed/switched via the "strange"
+		*  LR values
+		*/
 		// Save extra registers
 		asm volatile(	"push {r4-r11}\n\r" : : );
 

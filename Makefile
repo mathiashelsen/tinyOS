@@ -59,7 +59,7 @@ SRC := *.c \
 	./STM32F4_Std/src/stm32f4xx_usart.c \
 	./STM32F4_Std/src/stm32f4xx_wwdg.c 
 
-FILTER_OUT := ./tasks/TB_logMap.c
+FILTER_OUT := ./tasks/TB_logMap.c ./tasks/TB_mandelbrot.c
 
 SRC := $(filter-out $(FILTER_OUT), $(wildcard $(SRC)))
 

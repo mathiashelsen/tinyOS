@@ -27,5 +27,10 @@ void logMap( void * _args )
 		}
 		
 	}	
+
+	for( ; ; )
+	{
+
+	}
 }
 

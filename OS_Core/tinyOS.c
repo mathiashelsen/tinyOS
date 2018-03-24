@@ -93,7 +93,7 @@ void TIM2_IRQHandler(void)
 		asm volatile(	"pop {r4-r11}\n\r" : : );
 
 		// Branch back to routine in progress
-		asm volatile(	"bx %0\n\r" : : "r" (lrValue) : "memory");
+		//asm volatile(	"bx %0\n\r" : : "r" (lrValue) : "memory");
 
 
 		/* You don't need this, when branching back to xFFF...9 

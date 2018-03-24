@@ -22,8 +22,9 @@ void mandelbrot(void *_args)
 			k					= 0;
 			while(k < args->N_iters && radius < args->max_radius)
 			{
-				z      = z*z + c;
-				radius = cabs(z);
+				z		= z*z + c;
+				radius	= cabs(z);
+				k		= k+1;
 			}
 			if(radius < args->max_radius)
 			{

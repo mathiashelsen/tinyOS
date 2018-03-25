@@ -2,6 +2,7 @@
 
 volatile uint16_t rr = 0x8000;
 volatile uint32_t myStackPtr = 0x0;
+volatile struct scheduler *kernelSch;
 
 int setupIO( )
 {
@@ -59,43 +60,12 @@ int setupIO( )
 
 void TIM2_IRQHandler(void)
 {
-	uint32_t stackPtr = 0;
-	uint32_t lrValue = 0;
-
     if( TIM_GetITStatus( TIM2, TIM_IT_Update) != RESET )
     {
 		TIM_ClearITPendingBit( TIM2, TIM_IT_Update );
 		TIM_Cmd(TIM2, DISABLE);
 
 
-
-		/* This only works because we never use the PSR, and only
-		*  the MSR. This can be programmed/switched via the "strange"
-		*  LR values
-		*/
-		// Save LR value (return to floating point?)	
-		asm volatile(	"mov %0, lr\n\r" : "=r" (lrValue) : : "memory");
-	
-
-		/* INSERT SCHEDULER MAGIC */
-		myStackPtr = stackPtr;
-
-		// Branch back to routine in progress
-		//asm volatile(	"bx %0\n\r" : : "r" (lrValue) : "memory");
-
-
-		/* You don't need this, when branching back to xFFF...9 
-		* The interrupt controller takes care of loading the LR
-		* from stack. Take care to save if it has to return FP registers
-		* as well. Store R4-R11 on the stack as well MANUALLY!
-		*/
-
-
-//		// Retrieve return address
-//		asm volatile(	"ldr %0, [sp, #40]"
-//						: "=r" (lrValue)
-//						: : "memory");
-//
 
 
 		rr = rr >> 1;
@@ -106,5 +76,7 @@ void TIM2_IRQHandler(void)
 
 		GPIO_Write(GPIOD, rr);
 		TIM_Cmd(TIM2, ENABLE);
+
+		switchToNextTask ( kernelSch );
     }
 }

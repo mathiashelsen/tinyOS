@@ -57,7 +57,7 @@ int createTask		(
 }
 
 
-int switchToNextTask (
+void switchToNextTask (
 	struct scheduler *sch )
 {
 	uint32_t stackPtr;
@@ -71,6 +71,10 @@ int switchToNextTask (
 	}
 	else
 	{
+		/* This only works because we never use the PSR, and only
+		*  the MSR. This can be programmed/switched via the "strange"
+		*  LR values
+		*/
 		// Save extra registers
 		asm volatile(	"push {r4-r11}\n\r" : : );
 
@@ -82,14 +86,15 @@ int switchToNextTask (
 		nextTask = (sch->currentTask)->nextTask;
 	}
 
+	sch->currentTask = nextTask;
+	stackPtr = (sch->currentTask)->stackPtr;
+
+	// Return stack pointer
+	asm volatile(	"mov sp, %0\n\r" : : "r" (stackPtr) : "memory");
+
+
 	if(nextTask->taskFlags.activated == 0)
 	{
-		sch->currentTask = nextTask;
-		stackPtr = (sch->currentTask)->stackPtr;
-
-		// Return stack pointer
-		asm volatile(	"mov sp, %0\n\r" : : "r" (stackPtr) : "memory");
-
 		nextTask->taskFlags.activated	= 1;
 		nextTask->taskFlags.running		= 1;
 
@@ -101,5 +106,4 @@ int switchToNextTask (
 		asm volatile(	"pop {r4-r11}\n\r" : : );
 	}
 
-	return 1;
 }

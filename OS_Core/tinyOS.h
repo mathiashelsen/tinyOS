@@ -5,6 +5,8 @@
 #include "stm32f4xx.h"
 #include "stm32f4xx_rcc.h"
 
+#include "OS_Core/scheduler.h"
+
 #include <stdint.h>
 
 int setupIO( );

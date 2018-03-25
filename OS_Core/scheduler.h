@@ -40,7 +40,7 @@ int createTask		(
 	struct scheduler *sch,
 	 void (*func)(void *), void* args );
 
-int switchToNextTask (
+void switchToNextTask (
 	struct scheduler *sch );
 
 int killTask		(

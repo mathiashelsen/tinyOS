@@ -1,63 +1,47 @@
 #include "OS_Core/tinyOS.h"
 #include "OS_Core/scheduler.h"
 #include "../tasks/logMap.h"
+#include "../tasks/mandelbrot.h"
 
 #include "stm32f4xx_gpio.h"
 
-extern volatile uint32_t myStackPtr;
-
-int calcFact(int n)
-{
-	if(n == 1)
-	{
-		return n;
-	} else {
-		return n*calcFact(n-1);
-	}
-}
-
-void doStuff( void *args )
-{
-	int i = 100;
-	while( i > 0 )
-	{
-		i = i-1;
-	}
-}
+extern volatile struct scheduler *kernelSch;
 
 int main(void)
 {
-	int i = 2;
-	int j = 0;
-	int z = 0;
 	setupIO( );
 
-	struct logMap_args args;
-	args.r_start	= 0.0;
-	args.r_end		= 4.0;
-	args.N_r		= 100.0;
-	args.N_iters	= 1000.0;
-	args.N_saves	= 100;
+	struct logMap_args logMapArgs;
+	logMapArgs.r_start	= 0.0;
+	logMapArgs.r_end		= 4.0;
+	logMapArgs.N_r		= 100.0;
+	logMapArgs.N_iters	= 1000.0;
+	logMapArgs.N_saves	= 100;
 
-	logMap( (void*)&args );
+
+	struct mandelbrot_args mandelbrotArgs;
+	mandelbrotArgs.r_start	= -2.0;
+	mandelbrotArgs.r_end		= 2.0;
+	mandelbrotArgs.i_start	= -1.0;
+	mandelbrotArgs.i_end		= 1.0;
+	mandelbrotArgs.max_radius	= 1000.0;
+	mandelbrotArgs.N_r		= 100;
+	mandelbrotArgs.N_i		= 100;
+	mandelbrotArgs.N_iters	= 1000;
+
 
 	struct scheduler process_0;
+
 	initScheduler( &process_0 );
-	createTask( &process_0, &doStuff, NULL );
+
+	createTask( &process_0, &logMap, &logMapArgs);
+	createTask( &process_0, &mandelbrot, &mandelbrotArgs);
+
+	kernelSch = &process_0;
 
 	for(;;)
 	{
-		//j = calcFact(i);
-		j = (int) &calcFact;
-		asm volatile(	"bx %0\n\r" : : "r" (j) : "memory");
-		z = (int) myStackPtr;
-
-		if(j == z)
-			j = 2;
-
-		i++;
-		if( i > 100 )
-			i = 2;
 	}
+
 	return 0;
 }

@@ -58,6 +58,8 @@ int setupIO( )
 	return 0;
 }
 
+// Tried using attribute isr, naked , but that doesnt work at all
+// -> Correct for addition to stack in the assembly
 void TIM2_IRQHandler(void)
 {
     if( TIM_GetITStatus( TIM2, TIM_IT_Update) != RESET )

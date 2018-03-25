@@ -16,7 +16,7 @@ struct task
 	struct taskFlags_str	taskFlags;
 	uint32_t				stackPtr;
 	uint32_t				heapPtr;
-	uint32_t				pcValue;
+	void					(*taskFunc)(void *);
 	void*					taskArgs;
 	struct task*			nextTask;
 };
@@ -24,6 +24,7 @@ struct task
 struct scheduler
 {
 	uint32_t numTasks;
+	char     active;
 
 	uint32_t stackBase;
 	uint32_t stackSize;
@@ -37,8 +38,10 @@ struct scheduler
 
 int createTask		(
 	struct scheduler *sch,
-	void (*func)(const void *), void* args 
-	);
+	 void (*func)(void *), void* args );
+
+int switchToNextTask (
+	struct scheduler *sch );
 
 int killTask		(
 	struct scheduler *sch,

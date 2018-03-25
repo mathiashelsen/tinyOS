@@ -73,24 +73,12 @@ void TIM2_IRQHandler(void)
 		*  the MSR. This can be programmed/switched via the "strange"
 		*  LR values
 		*/
-		// Save extra registers
-		asm volatile(	"push {r4-r11}\n\r" : : );
-
-		// Retrieve stack pointer value
-		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
-	
 		// Save LR value (return to floating point?)	
 		asm volatile(	"mov %0, lr\n\r" : "=r" (lrValue) : : "memory");
 	
 
 		/* INSERT SCHEDULER MAGIC */
 		myStackPtr = stackPtr;
-
-		// Return stack pointer
-		asm volatile(	"mov sp, %0\n\r" : : "r" (stackPtr) : "memory");
-
-		// Read back extra registers
-		asm volatile(	"pop {r4-r11}\n\r" : : );
 
 		// Branch back to routine in progress
 		//asm volatile(	"bx %0\n\r" : : "r" (lrValue) : "memory");

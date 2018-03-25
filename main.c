@@ -16,7 +16,7 @@ int calcFact(int n)
 	}
 }
 
-void doStuff( const void *args )
+void doStuff( void *args )
 {
 	int i = 100;
 	while( i > 0 )

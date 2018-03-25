@@ -60,6 +60,8 @@ void switchToNextTask (
 	struct scheduler *sch )
 {
 	uint32_t stackPtr;
+	uint32_t retVal = 0xfffffff9;
+	uint32_t zeroes = 0x01000000;
 	struct task *nextTask;
 
 	if(sch->active == 0)
@@ -91,13 +93,28 @@ void switchToNextTask (
 	// Return stack pointer
 	asm volatile(	"mov sp, %0\n\r" : : "r" (stackPtr) : "memory");
 
+		// Retrieve stack pointer value
+		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
+
 
 	if(nextTask->taskFlags.activated == 0)
 	{
 		nextTask->taskFlags.activated	= 1;
 		nextTask->taskFlags.running		= 1;
 
-		nextTask->taskFunc(nextTask->taskArgs);
+		// We create a fake interrupt stack to which to return
+
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory" );
+		asm volatile(	"push {%0}\n\r" : : "r" (nextTask->taskFunc) : "memory" );
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (zeroes) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (nextTask->taskArgs) : "memory");
+		asm volatile(	"push {%0}\n\r" : : "r" (retVal) : "memory");
+
+		asm volatile(	"pop {pc}\n\r" : : : );
 	}
 	else
 	{

@@ -65,6 +65,12 @@ int switchToNextTask (
 
 	if(sch->active == 0)
 	{
+		sch->active	= 1;
+
+		nextTask = sch->rootTask;
+	}
+	else
+	{
 		// Save extra registers
 		asm volatile(	"push {r4-r11}\n\r" : : );
 
@@ -73,12 +79,6 @@ int switchToNextTask (
 		
 		(sch->currentTask)->stackPtr = stackPtr;
 
-		sch->active	= 1;
-
-		nextTask = sch->rootTask;
-	}
-	else
-	{
 		nextTask = (sch->currentTask)->nextTask;
 	}
 

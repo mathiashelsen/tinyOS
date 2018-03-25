@@ -9,7 +9,6 @@ extern volatile struct scheduler *kernelSch;
 
 int main(void)
 {
-	setupIO( );
 
 	struct logMap_args logMapArgs;
 	logMapArgs.r_start	= 0.0;
@@ -38,6 +37,7 @@ int main(void)
 	createTask( &process_0, &mandelbrot, &mandelbrotArgs);
 
 	kernelSch = &process_0;
+	setupIO( );
 
 	for(;;)
 	{

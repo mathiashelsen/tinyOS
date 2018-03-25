@@ -10,7 +10,7 @@ int initScheduler	(
 	sch->rootTask	= NULL;
 	sch->active		= 0;
 
-	sch->stackBase	= _estack - 0x400;
+	sch->stackBase	= &_estack - 0x400;
 	sch->heapBase	= 0x20000000;
 
 	sch->stackSize	= 0x100;
@@ -24,12 +24,11 @@ int createTask		(
 	 void (*func)(void *), void* args )
 {
 	// "Kernel" allocate some space for the new task
-	struct task *newTask	= malloc(sizeof(newTask));
+	struct task *newTask	= malloc(sizeof(struct task));
 	// Put the stack and heap at the right location
 	newTask->stackPtr		= sch->stackBase - sch->numTasks*sch->stackSize;
 	newTask->heapPtr		= sch->heapBase  + sch->numTasks*sch->heapSize;
 	newTask->taskFunc		= func;
-	//newTask->pcValue		= (uint32_t) func;
 	newTask->taskArgs		= args;
 	newTask->taskFlags.activated = 0;
 	newTask->taskFlags.running = 0;

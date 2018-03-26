@@ -1,8 +1,11 @@
 #include "tinyOS.h"
 
+#define RET_FROM_EXCP 0xFFFFFFF9
+
 volatile uint16_t rr = 0x8000;
 volatile uint32_t myStackPtr = 0x0;
 volatile struct scheduler *kernelSch;
+
 
 int setupIO( )
 {
@@ -60,8 +63,10 @@ int setupIO( )
 
 // Tried using attribute isr, naked , but that doesnt work at all
 // -> Correct for addition to stack in the assembly
+__attribute__ ((naked)) 
 void TIM2_IRQHandler(void)
 {
+	asm volatile( "push {lr}\r\n");
     if( TIM_GetITStatus( TIM2, TIM_IT_Update) != RESET )
     {
 		TIM_ClearITPendingBit( TIM2, TIM_IT_Update );
@@ -81,6 +86,7 @@ void TIM2_IRQHandler(void)
 		uint32_t stackPtr;
 
 		// Retrieve stack pointer value
+		/*
 		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
 
 		switchToNextTask ( kernelSch );
@@ -88,7 +94,10 @@ void TIM2_IRQHandler(void)
 
 		// Retrieve stack pointer value
 		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
+		*/
+
 
 		TIM_Cmd(TIM2, ENABLE);
     }
+	asm volatile( "pop {pc}\r\n");
 }

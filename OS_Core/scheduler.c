@@ -1,6 +1,9 @@
 #include "scheduler.h"
 
+volatile struct task *nextTask;
 extern uint32_t _estack;
+static uint32_t retVal = 0xfffffff9;
+static uint32_t zeroes = 0x01000000;
 
 int initScheduler	(
 	struct scheduler *sch
@@ -60,9 +63,6 @@ void switchToNextTask (
 	struct scheduler *sch )
 {
 	uint32_t stackPtr;
-	uint32_t retVal = 0xfffffff9;
-	uint32_t zeroes = 0x01000000;
-	struct task *nextTask;
 
 	if(sch->active == 0)
 	{

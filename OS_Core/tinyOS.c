@@ -82,14 +82,14 @@ void TIM2_IRQHandler(void)
 		}
 
 		GPIO_Write(GPIOD, rr);
-		TIM_Cmd(TIM2, ENABLE);
+		//TIM_Cmd(TIM2, ENABLE);
 		uint32_t stackPtr;
+		switchToNextTask ( kernelSch );
 
 		// Retrieve stack pointer value
 		/*
 		asm volatile(	"mov %0, sp\n\r"  :"=r" (stackPtr) : : "memory");
 
-		switchToNextTask ( kernelSch );
 
 
 		// Retrieve stack pointer value

@@ -114,7 +114,8 @@ void switchToNextTask (
 		asm volatile(	"push {%0}\n\r" : : "r" (nextTask->taskArgs) : "memory");
 		asm volatile(	"push {%0}\n\r" : : "r" (retVal) : "memory");
 
-		asm volatile(	"pop {pc}\n\r" : : : );
+                // This should be taken care of by the interrupt handler
+		//asm volatile(	"pop {pc}\n\r" : : : );
 	}
 	else
 	{

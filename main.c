@@ -2,6 +2,7 @@
 #include "OS_Core/scheduler.h"
 #include "../tasks/logMap.h"
 #include "../tasks/mandelbrot.h"
+#include "../tasks/simpleTask.h"
 
 #include "stm32f4xx_gpio.h"
 
@@ -33,8 +34,8 @@ int main(void)
 
 	initScheduler( &process_0 );
 
-	createTask( &process_0, &logMap, &logMapArgs);
-	createTask( &process_0, &mandelbrot, &mandelbrotArgs);
+	createTask( &process_0, &simpleTask, NULL);
+	createTask( &process_0, &simpleTask, NULL);
 
 	kernelSch = &process_0;
 	setupIO( );

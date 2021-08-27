@@ -32,7 +32,7 @@ int setupIO( )
     TIM_TimeBaseInitTypeDef TIMInit             = {0, }; 
     TIMInit.TIM_Prescaler                               = 64;
     TIMInit.TIM_CounterMode                             = TIM_CounterMode_Up;
-    TIMInit.TIM_Period                                  = 32813;
+    TIMInit.TIM_Period                                  = 32813*4;
     TIMInit.TIM_ClockDivision                   = TIM_CKD_DIV4;
 
     // Init but DON'T enable

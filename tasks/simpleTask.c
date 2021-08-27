@@ -15,7 +15,7 @@ void simpleTask(void * _args)
 
         GPIO_Write(GPIOD, rr);
 
-        for(i = 0; i < 10000 ; i+= 1){
+        for(i = 0; i < 100000 ; i+= 1){
         }
     }
 }
@@ -25,5 +25,6 @@ void simpleTask2(void * _args)
     while(1)
     {
         rr = 0x8000;
+        GPIO_Write(GPIOD, rr);
     }
 }

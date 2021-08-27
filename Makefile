@@ -14,7 +14,7 @@ DEFS = -DUSE_STDPERIPH_DRIVER -DSTM32F4XX -DHSE_VALUE=8000000
 STARTUP = startup_stm32f40xx.s
 
 MCU = cortex-m4
-MCFLAGS = -mcpu=$(MCU) -mthumb -mlittle-endian -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb-interwork -g -Wall -save-temps -fomit-frame-pointer
+MCFLAGS = -mcpu=$(MCU) -mthumb -mlittle-endian -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb-interwork -g -Wall -fomit-frame-pointer
 STM32_INCLUDES = -I./STM32F4_Std/inc/ -I./ -I./OS_Core/
 
 OPTIMIZE       = 

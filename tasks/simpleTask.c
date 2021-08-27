@@ -19,3 +19,11 @@ void simpleTask(void * _args)
         }
     }
 }
+
+void simpleTask2(void * _args)
+{
+    while(1)
+    {
+        rr = 0x8000;
+    }
+}
